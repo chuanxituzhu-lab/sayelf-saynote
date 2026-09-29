@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+frontend/node_modules/
+frontend/dist/
+data/*.sqlite3
+integration.sqlite3
+browser-check.sqlite3

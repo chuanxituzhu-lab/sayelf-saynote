@@ -1,0 +1,9 @@
+{
+  "desc": "SayNote local development preview",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

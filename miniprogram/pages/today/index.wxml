@@ -1,0 +1,69 @@
+<view class="page-shell">
+  <view class="page-heading">
+    <view>
+      <view class="eyebrow">SAYNOTE</view>
+      <view class="page-title">今天</view>
+    </view>
+    <view class="date-chip">{{dateLabel}}</view>
+  </view>
+
+  <view class="capture-card">
+    <view class="capture-heading">
+      <view class="capture-dot"></view>
+      <view>
+        <view class="eyebrow">QUICK CAPTURE</view>
+        <view class="card-title">记一下</view>
+      </view>
+    </view>
+    <textarea
+      class="record-input"
+      value="{{draft}}"
+      placeholder="此刻有什么想留下？"
+      maxlength="10000"
+      auto-height
+      show-confirm-bar="{{false}}"
+      bindinput="onDraftInput"
+    />
+    <view class="capture-actions">
+      <view class="capture-hint">原始事实会保留在本机</view>
+      <button
+        class="save-button {{canSave && !saving ? 'save-button-active' : ''}}"
+        disabled="{{!canSave || saving}}"
+        loading="{{saving}}"
+        bindtap="saveRecord"
+      >
+        {{saving ? '保存中…' : '保存'}}
+      </button>
+    </view>
+  </view>
+
+  <view class="timeline-section">
+    <view class="section-heading">
+      <view>
+        <view class="eyebrow">TIMELINE</view>
+        <view class="section-title">今天的记录</view>
+      </view>
+      <view class="record-count">{{records.length}}</view>
+    </view>
+
+    <view wx:if="{{errorMessage}}" class="status-error">{{errorMessage}}</view>
+    <view wx:elif="{{loading}}" class="status-muted">正在读取本机记录…</view>
+    <view wx:elif="{{records.length === 0}}" class="empty-state">
+      <view class="empty-mark">✦</view>
+      <view class="empty-title">今天还没有记录。</view>
+      <view class="empty-hint">写下第一句，留住此刻。</view>
+    </view>
+
+    <view wx:else class="record-list">
+      <view wx:for="{{records}}" wx:key="id" class="record-item">
+        <view class="record-time">{{item.displayTime}}</view>
+        <view class="record-body">
+          <view class="record-kind">原始记录 · {{item.kind}}</view>
+          <view class="record-text">{{item.raw_fact.text}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="local-note">记录保存在运行 SayNote 服务的电脑中</view>
+</view>

@@ -1,0 +1,15 @@
+{
+  "pages": ["pages/today/index"],
+  "window": {
+    "navigationBarTitleText": "SayNote · 今天",
+    "navigationBarBackgroundColor": "#f5f2eb",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f2eb",
+    "backgroundTextStyle": "light"
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

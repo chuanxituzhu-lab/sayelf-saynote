@@ -1,0 +1,10 @@
+{
+  "name": "SayNote",
+  "short_name": "SayNote",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f2eb",
+  "theme_color": "#f5f2eb",
+  "description": "本地优先的随手记"
+}
